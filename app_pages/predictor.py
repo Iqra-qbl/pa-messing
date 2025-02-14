@@ -70,7 +70,7 @@ def predictor():
 
     # Display prediction results
     st.title(f"Prediction: {"Safe" if not st.session_state.prediction else "Attack!"}")
-    st.write(f"Probability: {st.session_state.probability * 100.0:.2f}%")
+    st.write(f"Probability of attack: {st.session_state.probability * 100.0:.2f}%")
 
     # Update the progress bar dynamically
     st.progress(st.session_state.probability)
