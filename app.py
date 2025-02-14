@@ -1,17 +1,14 @@
-# a simple streamlit app which just shows a welcome message
-
 import streamlit as st
+from app_pages.multipage import MultiPage
 
+# load pages scripts
+from app_pages.home import home
+from app_pages.predictor import predictor
 
-def main():
-    st.title("Cybersecurity Threat Detection")
-    st.write("This is a simple app which uses Streamlit to create a web app for cybersecurity threat detection.")
-    
-    st.write("Here's the correlation heatmap of the dataset:")
-    
-    # Display an image from the filesystem
-    st.image("images/heatmap.png", width=700)
+app = MultiPage(app_name= "Cybersecurity Incident Detector") # Create an instance of the app 
 
+# Add your app pages here using .add_page()
+app.add_page("Home", home)
+app.add_page("Predictor", predictor)
 
-if __name__ == "__main__":
-    main()
+app.run() # Run the  app
